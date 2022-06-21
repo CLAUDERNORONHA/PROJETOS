@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="show-details">
+        <hgroup class='details-header'>
+            <h3>Name: {{instrutor.nome}} {{instrutor.sobrenome}}</h3>
+        </hgroup>
+        <section class="details-body">
+            <hgroup>
+                <h4>Endereço: {{instrutor.endereco}}</h4>
+                <h4>Telefone: {{instrutor.telefone}}</h4>
+                <h4>Data de Nascimento: {{instrutor.data_nascimento.strftime("%d/%m/%Y")}}</h4>
+            </hgroup>
+            <hr>
+            <h4>Atividades:</h4>
+            <ul>
+            {% for atividade in instrutor_atividades %}
+                <li>
+                    <a href="/atividades/{{ atividade.id }}"> {{atividade.nome}} - {{atividade.data.strftime("%d/%m/%Y")}} - {{atividade.data.strftime("%I:%M %p")}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            <hr>
+            <p>
+                <a class="card-btn" href="/instrutores/{{instrutor.id}}/edit">Editar Detalhes do Instrutor</a>
+            </p>
+        </section>
+
+    </section>
+{% endblock content %}

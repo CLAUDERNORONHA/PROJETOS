@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="show-details">
+  <hgroup class='details-header'>
+    <h3>Nome: {{membro.nome}} {{membro.sobrenome}}</h3>
+    <h3>Id do Membro: {{membro.id}}</h3>
+  </hgroup>
+  <section class="details-body">
+    <hgroup>
+      <h4>Endereço: {{membro.endereco}}</h4>
+      <h4>Telefone: {{membro.telefone}}</h4>
+      <h4>E-mail: {{membro.email_address}}</h4>
+      <h4>Data Nascimento: {{membro.data_nascimento.strftime("%d/%m/%Y")}}</h4>
+    </hgroup>
+    <hr>
+    <hgroup>
+      <h4>Tipo Plano: {{tipo_plano.plano}}</h4>
+      <h4>Data Início: {{membro.data_inicio.strftime("%d/%m/%Y")}}</h4>
+      <h4>Status: {% if  membro.ativo == True%} Ativo {% else %} Inativo {% endif %}
+      </h4>
+    </hgroup>
+    <hr>
+    <h4>Atividades Agendadas:</h4>
+    <ul>
+      {% for atividade in atividades_agendadas %}
+      <li>
+        <a href="/atividades/{{ atividade.id }}"> {{atividade.nome}} - {{atividade.data.strftime("%d/%m/%Y")}} - {{atividade.data.strftime("%I:%M %p")}}</a>
+        <a class="del-btn" href="/agendamentos/delete/membros/{{membro.id}}/{{atividade.id}}">Remover Agendamento</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <hr>
+    <p>
+      <a class="card-btn" href="/membros/{{membro.id}}/edit">Editar Detalhes do Membro</a>
+    </p>
+    <hr>
+    <p>
+      <a class="card-btn" href="/agendamentos/novo/membro/{{membro.id}}">Fazer Agendamento</a>
+    </p>
+  </section>
+</section>
+
+{% endblock content %}
+
+
+
+

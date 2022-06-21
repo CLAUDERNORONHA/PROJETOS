@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="form" action="/instrutores/{{instrutor.id}}" method="POST">
+    
+    <h1>Novo Instrutor</h1>
+    
+    <label for="nome">Nome:</label>
+    <input name="nome" id="nome" placeholder="Nome" type="text" value="{{instrutor.nome}}" required autofocus>
+    
+    <label for="sobrenome">Sobrenome:</label>
+    <input name="sobrenome" id="sobrenome" placeholder="Sobrenome" type="text" value="{{instrutor.sobrenome}}" required>
+    
+    <label for="data_nascimento">Data de Nascimento:</label>
+    <input name="data_nascimento" id="data_nascimento" placeholder="Data de Nascimento:" type="date" value="{{instrutor.data_nascimento}}" required>
+    
+    <label for="endereco">Endereço:</label>
+    <input name="endereco" id="endereco" placeholder="Endereço" type="textarea" value="{{instrutor.endereco}}" required>
+    
+    <label for="telefone" >Telefone:</label>
+    <input name="telefone" id="telefone" placeholder="Telefone" type="text" value="{{instrutor.telefone}}" required>
+
+    <button type="submit">Atualizar Instrutor</button>
+
+</form>
+
+
+
+{% endblock content %}

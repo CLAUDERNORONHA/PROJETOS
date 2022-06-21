@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/agendamentos/atividade" method="POST">
+  
+  <h1>Novo Agendamento</h1>
+  
+  <label for="atividade">Atividade:</label>
+  
+  <input name="atividade" id="atividade" type="hidden" value="{{ atividade.id }}">
+  
+  <h4>{{ atividade.name }} - {{atividade.data.strftime("%d/%m/%Y")}} - {{atividade.data.strftime("%X")}}</h4>
+  
+  <label for="membro">Membro:</label>
+  
+  <select id="membro" name="membro">
+    {% for membro in members %}
+    {% if membro.tipo_plano.plano == atividade.tipo_plano.plano %}
+    <option value="{{ membro.id}}">{{ membro.nome }} {{ membro.sobrenome }} - {{ membro.tipo_plano.plano }}
+    </option>
+    {% endif %}
+    {% endfor %}
+  </select>
+  
+  <button type="submit">Agendar Atividade</button>
+
+</form>
+
+{% endblock content %}

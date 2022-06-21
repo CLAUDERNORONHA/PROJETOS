@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flexcards">
+  <div class="add-card">
+    <span></span>
+    <a href="/instrutores/novo"></a>
+  </div>
+  {% for instrutor in instrutores %}
+  <div class="card">
+    <img id="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+    <h4 id="nome"><b>{{instrutor.nome}} {{instrutor.sobrenome}}</b></h4>
+    <hr>
+    <p>
+      <a class="card-btn" href="/instrutores/{{instrutor.id}}">Detalhes</a>
+    </p>
+    <hr>
+    <p>
+      <a class="card-btn" href="/instrutores/{{instrutor.id}}/edit">Editar</a>
+    </p>
+    <hr>
+    <p>
+      <a class="card-btn" href="/instrutores/{{instrutor.id}}/delete">Remover</a>
+    </p>
+    <hr>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
