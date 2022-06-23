@@ -1,17 +1,17 @@
 .show-details {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(235, 130, 45, 0.2);
   transition: 0.3s;
   border-radius: 5px;
   margin: 15px auto;
   width: 60%;
   height: auto;
   padding: 16px;
-  color: #910a37;
+  color: #c1801f;
   font-family: "Roboto", sans-serif;
 }
 
 .details-header {
-  background-color: #24054c;
+  background-color: #e8a766;
   border-radius: 5px;
   color: #c7c7c7;
   padding: 6px;
