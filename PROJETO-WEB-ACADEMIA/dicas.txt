@@ -1,0 +1,7 @@
+
+*** Antes o  banco de dados deve estar conectado 
+
+
+para abrir o palicativo deve ir ao prompt de comando e procurar a pastão onde estão localizado os arquivos e e digitar o seguinte comando 
+
+flask run
