@@ -1,6 +1,7 @@
 # Controlador de Instrutores  
 
 # Imports
+#letra minuscula é uma função , letra maiuscula é uma CLASSE
 from flask import render_template, request, redirect
 from flask import Blueprint
 from classes.instrutor import Instrutor
@@ -8,6 +9,7 @@ import conectores.conector_instrutor as conector_instrutor
 
 
 # Cria o blueprint (instância da classe)
+#criação de componentes
 instrutores_blueprint = Blueprint("instrutores", __name__)
 
 
@@ -15,10 +17,13 @@ instrutores_blueprint = Blueprint("instrutores", __name__)
 @instrutores_blueprint.route("/instrutores")
 def instrutores_index():
     instrutores = conector_instrutor.get_all()
+    #renderizar a pagina html(consttruir a agina e enviar par ao navegador)
     return render_template("instrutores/index.html", instrutores = instrutores, title = "Instrutores")
 
 
 # Rota para a página de cadastro de instrutor
+
+#blueprint serve para construir cada componente ou seja é uma ação 
 @instrutores_blueprint.route("/instrutores/novo")
 def novo_instrutor():
     return render_template("instrutores/novo.html", title = "Novo Instrutor")
@@ -38,6 +43,9 @@ def cria_instrutor():
 
 
 # Rota para a página de edição de um instrutor
+
+#comunicação com o banco de dados e pga o ID 
+
 @instrutores_blueprint.route("/instrutores/<id>/edit")
 def edita_instrutor(id):
     instrutor = conector_instrutor.get_one(id)
