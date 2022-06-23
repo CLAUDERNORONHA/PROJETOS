@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/atividades" method="POST">
+    
+    <h1>Nova Atividade</h1>
+    
+    <label for="nome">Nome Atividade:</label>
+    <input name="nome" id="name" placeholder="Nome Atividade" type="text"  required autofocus>
+    
+    <label for="instrutor">Instrutor:</label>
+    <select id="instrutor" name="instrutor">
+        {% for instrutor in instrutores %}
+            <option value="{{ instrutor.id }}">{{ instrutor.nome }} {{ instrutor.sobrenome }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="data">Data:</label>
+    <input name="data" id="data" placeholder="Data:" type="date" required>
+
+    <label for="duracao">Duração:</label>
+    <input name="duracao" id="duracao" placeholder="Duração" type="text" required>
+    
+    <label for="capacidade">Capacidade:</label>
+    <input name="capacidade" id="capacidade" placeholder="Capacidade" type="text" required>
+    
+    <label for="tipo_plano">Tipo Plano:</label>
+    <select id="tipo_plano" name="tipo_plano">
+        {% for tipo_plano in tipos_planos %}
+            <option value="{{ tipo_plano.id }}">{{ tipo_plano.plano }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="ativo">Ativo:</label>
+    <select name="ativo" id="ativo">
+        <option value="True">Sim</option>
+        <option value="False">Não</option>
+    </select>
+
+    <button type="submit">Adicionar Atividade</button>
+
+</form>
+
+{% endblock content %}

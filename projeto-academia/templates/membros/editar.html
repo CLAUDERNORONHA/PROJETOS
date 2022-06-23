@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="form" action="/membros/{{membro.id}}" method="POST">
+    
+    <h1>Novo Membro</h1>
+    
+    <label for="nome">Nome:</label>
+    <input name="nome" id="nome" placeholder="Nome" type="text" value="{{membro.nome}}" required autofocus>
+    
+    <label for="sobrenome">Sobrenome:</label>
+    <input name="sobrenome" id="sobrenome" placeholder="Sobrenome" type="text" value="{{membro.sobrenome}}" required>
+    
+    <label for="data_nascimento">Data Nascimento:</label>
+    <input name="data_nascimento" id="data_nascimento" placeholder="Data Nascimento:" type="date" value="{{membro.data_nascimento}}" required>
+    
+    <label for="email">E-mail:</label>
+    <input name="email" id="email" placeholder="Email" type="text" value="{{membro.email}}" required>
+    
+    <label for="telefone">Telefone:</label>
+    <input name="telefone" id="telefone" placeholder="Telefone" type="text" value="{{membro.telefone}}" required>
+    
+    <label for="endereco">Endereço:</label>
+    <input name="endereco" id="endereco" placeholder="Endereço" type="textarea" value="{{membro.endereco}}" required>
+    
+    <label for="tipo_plano">Tipo Plano:</label>
+    <select name="tipo_plano" id="tipo_plano">
+        {% for plano in tipos_planos %}
+            <option value="{{plano.id}}" {% if membro.tipo_plano == plano.id %} selected="selected" {% endif %} >{{plano.plano}}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="data_inicio">Data Início:</label>
+    <input name="data_inicio" id="data_inicio" type="date" value="{{membro.data_inicio}}" required>
+    
+    <label for="ativo">Membro Ativo:</label>
+    <select name="ativo" id="ativo">
+        <option value="True" {% if membro.ativo == True %} selected="selected" {% endif %}>Sim</option>
+        <option value="False"{% if membro.ativo == False %} selected="selected" {% endif %}>Não</option>
+    </select>
+
+    <button type="submit">Atualizar Membro</button>
+
+</form>
+
+{% endblock content %}

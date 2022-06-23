@@ -1,0 +1,84 @@
+form > h1 {
+  height: 100px;
+  width: 100%;
+  font-size: 18px;
+  background-color: #24054c;
+  color: #c7c7c7;
+  line-height: 150%;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+form {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  width: 70%;
+  margin: 50px auto 0;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  padding-bottom: 40px;
+  border-radius: 3px;
+  color: #910a37;
+}
+
+form > h4 {
+  padding-left: 25px;
+}
+
+form > input,
+select {
+  margin-left: 25px;
+  margin-bottom: 40px;
+  width: 95%;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #24054c;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #24054c 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+}
+
+form > input:focus, input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+
+form > button {
+  border: none;
+  background: #24054c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 200px;
+  color: #c7c7c7;
+  margin: 25px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+form > button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+form > label {
+  margin-left: 25px;
+  width: 440px;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #24054c 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+}
+
+.error {
+  margin: 25px;
+  color: red;
+}

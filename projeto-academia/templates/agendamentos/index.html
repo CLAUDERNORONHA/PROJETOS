@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/agendamentos" method="POST">
+    
+    <h1>Novo Agendamento</h1>
+    
+    <label for="membro" >Membro:</label>
+    
+    <select id="membro" name="membro">
+        {% for membro in membros %}
+            <option value="{{ membro.id }}"{% if membro.membro == membro.id %} selected="selected"{% endif %}>{{ membro.nome }} {{ membro.sobrenome }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="atividade" >Atividade:</label>
+    
+    <select id="atividade" name="membro">
+        {% for atividade in atividades %}
+            <option value="{{ atividade.id }}"{% if atividade.atividade == atividade.id %} selected="selected"{% endif %}>{{ atividade.nome }} - {{atividade.data.strftime("%d/%m/%Y")}} - {{atividade.data.strftime("%X")}}</option>
+        {% endfor %}
+    </select>
+    
+    <button type="submit">Agendar Atividade</button>
+
+</form>
+
+{% endblock content %}

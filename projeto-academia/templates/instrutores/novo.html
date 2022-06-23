@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="form" action="/instrutores" method="POST">
+    
+    <h1>Novo Instrutor</h1>
+    
+    <label for="first_name" >Nome:</label>
+    <input name="first_name" id="first_name" placeholder="First name" type="text" required autofocus>
+    
+    <label for="last_name" >Sobrenome:</label>
+    <input name="last_name" id="last_name" placeholder="Last name" type="text" required>
+    
+    <label for="date_of_birth" >Data Nascimento:</label>
+    <input name="date_of_birth" id="date_of_birth" placeholder="Date of birth:" type="date" required>
+    
+    <label for="address" >Endereço:</label>
+    <input name="address" id="address" placeholder="Address" type="textarea" required>
+    
+    <label for="phone_number" >Telefone:</label>
+    <input name="phone_number" id="phone_number" placeholder="Phone number" type="text" required>
+    
+    <button type="submit">Adicionar Instrutor</button>
+
+</form>
+
+{% endblock content %}
